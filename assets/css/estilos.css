@@ -52,22 +52,3 @@ fieldset[disabled] .btn-simple.active {
 }
 
 
-/*carton*/
-table {
-  width: 700px;
-  border: 1px solid #000;
-  border-collapse: collapse;
-  text-align: center;
-}
-table th, table td {
-  border: 1px solid #000;
-  text-align: center;
-  font-size: 45px;
-  font-family: LuckiestGuy;
-}
- 
-
- @font-face {
-      font-family: "LuckiestGuy";
-      src: url("../LuckiestGuy.ttf") format("truetype");
-      }

@@ -1,0 +1,27 @@
+.tabla{
+display: table;
+border: 3px solid #49ACE5;
+width: 720px;
+text-align: center;
+font-size: 45px;
+font-family: LuckiestGuy;
+color: #143040;
+}
+.fila{
+  border: 3px solid #49ACE5;
+display: table-row;
+min-height: 72px;
+max-height: 72px;
+}
+.columna{
+display: table-cell;
+border: 3px solid #49ACE5;
+min-width: 72px;
+max-width: 72px;
+}
+
+@font-face {
+font-family: "LuckiestGuy";
+src: url("../LuckiestGuy.ttf") format("truetype");
+
+}
