@@ -1,23 +1,42 @@
 .tabla{
-display: table;
-border: 3px solid #49ACE5;
-width: 720px;
-text-align: center;
-font-size: 45px;
-font-family: LuckiestGuy;
-color: #143040;
+	display: table;
+	border: 3px solid #49ACE5;
+	width: 720px;
+	text-align: center;
+	font-size: 45px;
+	font-family: LuckiestGuy;
+	color: #143040;
 }
+
 .fila{
   border: 3px solid #49ACE5;
-display: table-row;
-min-height: 72px;
-max-height: 72px;
+	display: table-row;
+	min-height: 72px;
+	max-height: 72px;
 }
-.columna{
-display: table-cell;
-border: 3px solid #49ACE5;
-min-width: 72px;
-max-width: 72px;
+
+.celda{
+	display: table-cell;
+	border: 3px solid #49ACE5;
+	min-width: 72px;
+	max-width: 72px;
+}
+
+
+.imgHuecoLibre{
+	min-height: 72px;
+	max-height: 72px;
+	background-image: url("../images/huecolibre.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.tachado{
+	/*background-color: red;*/
+	min-height: 72px;
+	max-height: 72px;
+	background-image: url("../images/cruz.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 @font-face {
