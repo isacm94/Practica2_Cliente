@@ -30,8 +30,8 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }
-.tachado{
-	/*background-color: red;*/
+
+.tachado{	
 	min-height: 72px;
 	max-height: 72px;
 	background-image: url("../images/cruz.png");

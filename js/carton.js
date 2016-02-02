@@ -11,7 +11,6 @@ function Jugar(){
 		
 
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
-
 		
 	}
 }

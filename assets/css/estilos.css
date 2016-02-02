@@ -45,10 +45,17 @@ fieldset[disabled] .btn-simple.active {
   background-color: #ffffff; 
 }
 
+/*Botón cantar bingo*/
+.btn-bingo{
+  width: 100%; 
+  font-size: 20px;
+}
+
 /*Clase oculto*/
 
 #oculto{
   display: none;
 }
+
 
 
