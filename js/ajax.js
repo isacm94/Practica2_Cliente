@@ -1,9 +1,10 @@
+
 function SacaBola() {
 
-  //alert("hola");
-  $.get("numeros.php",null, MuestraBola); 
+  $.get("numeros.php",{bolas: bolassacadas}, MuestraBola); 
 } 
 
 function MuestraBola(bola){
-  alert(bola);
+  bolassacadas.push(bola);
+  document.getElementById('bola').innerHTML = bola;
 }

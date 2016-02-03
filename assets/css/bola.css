@@ -1,0 +1,17 @@
+.bola{
+	font-family: LuckiestGuy;
+	font-size: 45px;
+	text-align: center;
+	vertical-align: middle;
+	
+	min-width: 173px;
+	max-width: 173px;
+	min-height: 173px;
+	max-height: 173px;
+
+	background-image: url("../../assets/images/bola.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	line-height: 173px;
+}

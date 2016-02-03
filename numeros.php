@@ -1,18 +1,9 @@
 <?php
 
-	$bolasBingo = Array();
-
 	do{
-		$bola = rand(1, 90);
-	}while(in_array($bola, $bolasBingo));//Contínua mientras el número generado esté en el array, ed, esté repetido
+		$bola = rand(1, 5);
+	}while(in_array($rnd, $_GET['bolas']));
 
-	while($i < 90){
-
-		$rnd = rand(1, 90);
-
-		if(! in_array($rnd, $bolasBingo)){
-			$bolasBingo[$i] = 
-		}
-	}
-	
 	echo $bola;
+	
+	

@@ -1,3 +1,5 @@
+
+var bolassacadas = new Array();
 function Jugar(){
 
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
