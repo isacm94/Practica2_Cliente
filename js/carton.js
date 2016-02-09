@@ -1,5 +1,5 @@
 
-var bolassacadas = new Array();
+
 function Jugar(){
 
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
@@ -11,7 +11,8 @@ function Jugar(){
 		$('#pre-contenido').hide();
 		$('#jugar').attr("disabled", true);
 		
-
+		//var milisegundos = 2000 //1000 = 1 segundo
+		//intervalo = setInterval("SacaBola()", milisegundos);
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
 		
 	}
@@ -138,20 +139,20 @@ function getColumna(min, max){
 //Establece 4 espacios libres en cada fila del cartón
 function getCartonConHuecosLibres(carton){
 
-	var HuecosLibres;get4NumAleat();
+	var HuecosLibres;
 
 	for (var i = 0; i < 3; i++){
-		HuecosLibres = get4NumAleat();
+		HuecosLibres = get4NumAleat(); //Devuelve 4 posiciones aleatorias sin repetir para ponerlo vacío
+		
 		for (var j = 0; j < 9; j++){
 
-			if(HuecosLibres.indexOf(j, 0) != -1){
+			if(HuecosLibres.indexOf(j, 0) != -1 && i != 2){//Si por la j está en el array de huecos libres, le ponemos L
 				carton[i][j] = 'L';
-			}
+			}		
 		}
 	}
-
 	
-
+	carton[2] = ultimafila(carton)
 	return carton;
 }
 
@@ -171,7 +172,6 @@ function get4NumAleat(){
 			i++;		
 		}
 	}
-	
 
 	return NumerosSinRepetir;
 
@@ -202,7 +202,43 @@ function TacharCelda(idx){
 }
 
 
+function ultimafila(carton){
+	var iguales=[];
 
+	var fila1 = carton[0];
+	var fila2 = carton[1];
+	var fila3 = carton[2];
+
+	
+	for(var i = 0; i < 9; i++){
+		if(fila1[i] == fila2[i])//Si son iguales fila1 y fila2, no se puede poner espacio libre
+			iguales[i] = true;
+		else
+			iguales[i] = false;
+ 	}
+
+
+ 	var posHuecosLibre = getRandom(0, 8);
+	i = 0;
+	var contHuecosLibres = 0;
+	while(i < 9){
+
+		if(iguales[i] == true && posHuecosLibre == i){//Hay que poner hueco libre pero no se puede
+		//Si coinciden las fila1 y fila2 y hay que poner huecolibre se genera otra vez los huecos libres
+			posHuecosLibre = getRandom(0, 8);
+		}
+		else if(iguales[i] == false && posHuecosLibre == i && contHuecosLibres < 4){//Hay q poner hueco libre y se puede
+			fila3[i] = 'L';
+
+			contHuecosLibres++;
+			i++;
+		}
+		else if(posHuecosLibre != i){//No hay q poner hueco
+			i++;
+		}
+	}
+	return fila3;
+}
 
 
 
