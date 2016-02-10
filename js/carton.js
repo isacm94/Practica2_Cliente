@@ -210,6 +210,7 @@ function ultimafila(carton){
 	var fila3 = carton[2];
 
 	
+	//Guardamos en un array si una posicion de la ultima fila se puede poner vacía, es decir, si las dos valores de arriba no son iguales	
 	for(var i = 0; i < 9; i++){
 		if(fila1[i] == fila2[i])//Si son iguales fila1 y fila2, no se puede poner espacio libre
 			iguales[i] = true;
@@ -218,24 +219,23 @@ function ultimafila(carton){
  	}
 
 
- 	var posHuecosLibre = getRandom(0, 8);
+ 	var posHuecosLibre;
 	i = 0;
 	var contHuecosLibres = 0;
-	while(i < 9){
 
-		if(iguales[i] == true && posHuecosLibre == i){//Hay que poner hueco libre pero no se puede
-		//Si coinciden las fila1 y fila2 y hay que poner huecolibre se genera otra vez los huecos libres
-			posHuecosLibre = getRandom(0, 8);
-		}
-		else if(iguales[i] == false && posHuecosLibre == i && contHuecosLibres < 4){//Hay q poner hueco libre y se puede
-			fila3[i] = 'L';
-
+	//Recorremos la última fila hasta rellenarla con 4 huecos libres
+	while(contHuecosLibres < 4){
+		posHuecosLibre = getRandom(1, 8);
+		
+		if(iguales[i] == false && posHuecosLibre == i && fila3[i] != 'L'){//Hay q poner hueco libre y se puede
 			contHuecosLibres++;
-			i++;
+			fila3[i] = 'L';		
 		}
-		else if(posHuecosLibre != i){//No hay q poner hueco
+
+		if(i == 8)
+			i = 0;
+		else
 			i++;
-		}
 	}
 	return fila3;
 }
