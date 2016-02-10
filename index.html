@@ -20,8 +20,7 @@
 
 			$(document).ready(function(){
 					$('#jugar').click(Jugar);
-					var milisegundos = 2000 //1000 = 1 segundo
-					intervalo = setInterval("SacaBola()", milisegundos);
+					$('#cantabingo').click(CantaBingo);				
 			});
 
 					
@@ -136,7 +135,7 @@
 					<div class="row" style="margin-top: 30px;">
 						<div class="col-md-5"></div>
 						<div class="col-md-2">
-							<input type="button" id="bingo" name="bingo" value="¡Bingo!" class="btn btn-simple btn-bingo">
+							<input type="button" id="cantabingo" name="cantabingo" value="¡Bingo!" class="btn btn-simple btn-bingo">
 						</div>
 						<div class="col-md-5"></div>
 					</div>
@@ -147,6 +146,7 @@
 			</aside>
 		</div>
 		<script type="text/javascript" src="js/carton.js"></script>
+		<script type="text/javascript" src="js/bingo.js"></script>
 		<script type="text/javascript" src="js/ajax.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		

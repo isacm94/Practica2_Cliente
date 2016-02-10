@@ -1,7 +1,7 @@
 
+var cartonPrincipal;//Carton del jugador principal
 
 function Jugar(){
-
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
 		alert("¡Error! Introduzca el número de jugadores")
 	else if($("#numJugadores").val() < 5 || $("#numJugadores").val() > 20)
@@ -15,11 +15,14 @@ function Jugar(){
 		//intervalo = setInterval("SacaBola()", milisegundos);
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
 		
+		var milisegundos = 200 //1000 = 1 segundo
+		intervalo = setInterval("SacaBola()", milisegundos);
+		
 	}
 }
 
 function MostrarCarton(){
-	var carton = getCarton();
+	cartonPrincipal = getCarton();
 	var id= "";
 	
 		for (var i=0; i<3; i++){
@@ -27,12 +30,12 @@ function MostrarCarton(){
 
 				id = '#' + i.toString() + j.toString();
 					
-				if(carton[i][j] == 'L'){
+				if(cartonPrincipal[i][j] == 'L'){
 					$(id).addClass("imgHuecoLibre");
 				}
 				
 				else {//Si no viene vacío, mostramos el número
-					$(id).text(carton[i][j]);
+					$(id).text(cartonPrincipal[i][j]);
 				}
 					
 			}

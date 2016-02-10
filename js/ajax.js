@@ -1,12 +1,13 @@
 
 function SacaBola() {
 
-  if(bolassacadas.length == 5){
+  if(bolassacadas.length == 90){
     clearInterval(intervalo);
+    alert("¡Ya han salido todas las bolas!");
   }
   else{
-    var bolas = JSON.stringify(bolassacadas); //Convertimos el array bolassacadas en json 
-  	$.get("numeros.php",{bolas: bolas}, MuestraBola); //Pasamos a php ese array
+    var bolasJSON = JSON.stringify(bolassacadas); //Convertimos el array bolassacadas en json 
+  	$.get("numeros.php",{bolas: bolasJSON}, MuestraBola); //Pasamos a php ese array
   }
 } 
 
