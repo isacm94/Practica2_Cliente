@@ -18,9 +18,9 @@ function CantaBingo(){
 	//alert("Bolas: " + bolas_15);
 
 	if(CompruebaBingo(bolas_15))
-		alert("¡BINGO CORRECTO!");
+		MostrarVentanaBingoCorrecto()
 	else
-		alert("¡BINGO INCORRECTO! Siga jugando");
+		MostrarVentanaBingoIncorrecto()
 
 }
 
@@ -37,7 +37,7 @@ function CompruebaBingo(carton){
 
 	}
 
-	alert("Aciertos: "+ contBolas);
+	//alert("Aciertos: "+ contBolas);
 
 	if(contBolas >= 15)
 		return true;
@@ -45,3 +45,23 @@ function CompruebaBingo(carton){
 		return false;
 }
 
+function MostrarVentanaBingoCorrecto() {
+	ventanaBingoCorrecto = window.open("", "", "width=400px, height=250px");
+	ventanaBingoCorrecto.moveTo(screen.width/2-150,screen.height/2-150); 
+
+	ventanaBingoCorrecto.document.write("<center><h1>¡BINGO CORRECTO!</h1></center><br>");
+	ventanaBingoCorrecto.document.write("<center><input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
+
+	ventanaBingoCorrecto.document.write("<script>function CerrarVentana(){window.close();}</script>");
+}
+
+function MostrarVentanaBingoIncorrecto() {
+	ventanaBingoIncorrecto = window.open("", "", "width=430px, height=250px");
+	ventanaBingoIncorrecto.moveTo(screen.width/2-150,screen.height/2-150); 
+
+	ventanaBingoIncorrecto.document.write("<center><h1>¡BINGO INCORRECTO!</h1>");
+	ventanaBingoIncorrecto.document.write("<h2>¡Siga jugando!</h3>");
+	ventanaBingoIncorrecto.document.write("<input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
+
+	ventanaBingoIncorrecto.document.write("<script>function CerrarVentana(){window.close();}</script>");
+}

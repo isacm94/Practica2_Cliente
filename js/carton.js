@@ -1,6 +1,9 @@
 
 var cartonPrincipal;//Carton del jugador principal
 
+var numJugadores = -1;
+var valorCarton = -1;
+
 function Jugar(){
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
 		alert("¡Error! Introduzca el número de jugadores")
@@ -8,14 +11,12 @@ function Jugar(){
 		alert("¡Error! El número de jugadores estar entre 5 y 20")
 	else{
 		$('#contenido').attr('style', '');//Mostramos el contenido
-		$('#pre-contenido').hide();
-		$('#jugar').attr("disabled", true);
+		$('#pre-contenido').hide();//Ocultamos la imagen de inicio
+		$('#jugar').attr("disabled", true);//Deshabilita botón
 		
-		//var milisegundos = 2000 //1000 = 1 segundo
-		//intervalo = setInterval("SacaBola()", milisegundos);
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
 		
-		var milisegundos = 3000 //1000 = 1 segundo
+		var milisegundos = 100; //1000 = 1 segundo
 		intervalo = setInterval("SacaBola()", milisegundos);
 		
 	}
