@@ -1,8 +1,7 @@
 
 var cartonPrincipal;//Carton del jugador principal
 
-var numJugadores = -1;
-var valorCarton = -1;
+
 
 function Jugar(){
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")

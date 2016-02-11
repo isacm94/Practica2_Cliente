@@ -17,10 +17,12 @@ function CantaBingo(){
 
 	//alert("Bolas: " + bolas_15);
 
-	if(CompruebaBingo(bolas_15))
-		MostrarVentanaBingoCorrecto()
+	if(CompruebaBingo(bolas_15)){
+		MostrarVentanaBingoCorrecto();
+		//ReiniciarBingo();
+	}
 	else
-		MostrarVentanaBingoIncorrecto()
+		MostrarVentanaBingoIncorrecto();
 
 }
 
@@ -64,4 +66,28 @@ function MostrarVentanaBingoIncorrecto() {
 	ventanaBingoIncorrecto.document.write("<input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
 
 	ventanaBingoIncorrecto.document.write("<script>function CerrarVentana(){window.close();}</script>");
+}
+
+function CreaCarton(){
+
+	var crtn = Array();
+
+	var i = 0;
+	var rnd;
+
+	while(i < 15){
+
+		rnd = getRandom(1, 98);
+
+		if(crtn.indexOf(rnd, 0) == -1){//No está repetido
+			crtn[i] = rnd;
+			i++;		
+		}
+	}
+
+	return crtn;
+}
+
+function ReiniciarBingo(){
+	document.location.href = document.location.href;
 }

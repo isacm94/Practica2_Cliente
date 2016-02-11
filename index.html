@@ -19,10 +19,14 @@
 				ventana.close();
 			} 
 
+			//Variables globales
+			var numJugadores
 			var bolassacadas = new Array();
 			var intervalo;
-			var ventanaBingoCorrecto;
-			var ventanaBingoIncorrecto;
+			var numJugadores = -1;
+			var valorCarton = -1;
+
+
 			$(document).ready(function(){
 					$('#jugar').click(Jugar);
 					$('#cantabingo').click(CantaBingo);			
