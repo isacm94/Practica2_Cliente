@@ -10,7 +10,7 @@ function CantaBingo(){
 
 						
 				if(cartonPrincipal[i][j] != 'L'){
-					bolas_15.push(cartonPrincipal[i][j]);
+					bolas_15.push(cartonPrincipal[i][j].toString());
 				}					
 			}
 		}
@@ -27,30 +27,21 @@ function CantaBingo(){
 //Función que le pasamos un carton y com prueba si es ganador o no
 function CompruebaBingo(carton){
 
-	var contBolas = 0; //guarda el número de aciertos en el carton
+	var contBolas = 0;
+	for(var i = 0; i < bolassacadas.length; i++){
 
-	for (var i=0; i<bolassacadas.length; i++){
-
-		alert("Carton: "+ carton +"Bola: "+ bolassacadas[i] + " existe: " + ExisteBolaEnElCarton(carton, bolassacadas[i]));
-		if(ExisteBolaEnElCarton(carton, bolassacadas[i])){//Si el c
-			contBolas++;
+		//alert("Carton: " + carton + " - Bola: " + bolassacadas[i] + " - Index: "+carton.indexOf(bolassacadas[i]))
+		if(carton.indexOf(bolassacadas[i]) != -1){
+			contBolas ++;
 		}
+
 	}
 
-	alert(contBolas);
-	if(contBolas == 15)
+	alert("Aciertos: "+ contBolas);
+
+	if(contBolas >= 15)
 		return true;
 	else
 		return false;
 }
 
-function ExisteBolaEnElCarton(carton, bola){
-	for(i=0;i< carton.length;i++) {
-		if(bola.toString() == carton[i]){
-			return true;
-		} 
-		else{
-			return false;
-		}
-	}
-}
