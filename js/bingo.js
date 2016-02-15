@@ -58,6 +58,8 @@ function MostrarVentanaBingoCorrecto() {
 }
 
 function MostrarVentanaBingoIncorrecto() {
+	intervalo = ParaBingo();
+
 	ventanaBingoIncorrecto = window.open("", "", "width=430px, height=250px");
 	ventanaBingoIncorrecto.moveTo(screen.width/2-150,screen.height/2-150); 
 
@@ -65,7 +67,9 @@ function MostrarVentanaBingoIncorrecto() {
 	ventanaBingoIncorrecto.document.write("<h2>¡Siga jugando!</h3>");
 	ventanaBingoIncorrecto.document.write("<input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
 
-	ventanaBingoIncorrecto.document.write("<script>function CerrarVentana(){window.close();}</script>");
+	ventanaBingoIncorrecto.document.write("<script>function CerrarVentana(){window.close(); }</script>");
+
+
 }
 
 function CreaCarton(){
@@ -88,6 +92,15 @@ function CreaCarton(){
 	return crtn;
 }
 
+function ParaBingo(){
+	clearInterval(intervalo);
+
+	return intervalo;
+}
+
+function SigueBingo(){
+	intervalo = setInterval("SacaBola()", milisegundos);
+}
 function ReiniciarBingo(){
 	document.location.href = document.location.href;
 }

@@ -15,7 +15,6 @@ function Jugar(){
 		
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
 		
-		var milisegundos = 100; //1000 = 1 segundo
 		intervalo = setInterval("SacaBola()", milisegundos);
 		
 	}
