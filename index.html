@@ -20,12 +20,12 @@
 			} 
 
 			//Variables globales
-			var numJugadores
 			var bolassacadas = new Array();
 			var intervalo;
 			var numJugadores = -1;
 			var valorCarton = -1;
-			var milisegundos = 100; //1000 = 1 segundo
+			var numBingosAcertados = 0;
+			var milisegundos = 300; //1000 = 1 segundo
 
 			$(document).ready(function(){
 					$('#jugar').click(Jugar);
@@ -56,9 +56,14 @@
 					<form>
 						<label>Número de jugadores: </label>
 						<input type="number" id="numJugadores" min="5" max="20" value="5">
+
+						<!--<label>Valor del cartón(en €): </label>
+						<input type="number" id="valorcarton" min="1" max="5" value="1">-->
+
+
 						<div class="form-inline" style="padding-top: 10px;">
 							<label>Valor del cartón: </label>
-							<select name="valorcarton">
+							<select name="valorcarton" id="valorcarton">
 								<option>1 €</option>
 								<option>2 €</option>
 								<option>3 €</option>
@@ -69,7 +74,7 @@
 						
 					</form>
 					<div style="padding-top: 10px;">
-						<input type="button" id="jugar" name="jugar" value="Jugar al bingo" class="btn btn-simple">
+						<input type="button" id="jugar" name="jugar" value="Jugar al bingo" class="btn btn-simple" data-toggle="modal" data-target="#myModal">
 					</div>
 				</div>
 				
@@ -154,6 +159,25 @@
 				</section>
 			</aside>
 		</div>
+
+		<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 		<script type="text/javascript" src="js/carton.js"></script>
 		<script type="text/javascript" src="js/bingo.js"></script>
 		<script type="text/javascript" src="js/ajax.js"></script>

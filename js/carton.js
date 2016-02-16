@@ -1,6 +1,6 @@
 
-var cartonPrincipal;//Carton del jugador principal
-
+var cartonPrincipal;//Cartón del jugador principal
+var cartones;//Cartones de los jugadores secundarios
 
 
 function Jugar(){
@@ -12,16 +12,27 @@ function Jugar(){
 		$('#contenido').attr('style', '');//Mostramos el contenido
 		$('#pre-contenido').hide();//Ocultamos la imagen de inicio
 		$('#jugar').attr("disabled", true);//Deshabilita botón
+
+		numJugadores = $("#numJugadores").val();
+		valorCarton = $("#valorcarton").val();
+		
+
+		//alert("Número de jugadores: "+ numJugadores + " - Valor del cartón: " + valorCarton);
 		
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
+
+		getRestoCartones(numJugadores - 1); //Situada en bingo.js
 		
-		intervalo = setInterval("SacaBola()", milisegundos);
+		intervalo = setInterval("SacaBola()", milisegundos);//Situada en ajax.js
 		
 	}
 }
 
+
+
+//Muestra el cartón del jugador principal
 function MostrarCarton(){
-	cartonPrincipal = getCarton();
+	cartonPrincipal = getCartonPrincipal();
 	var id= "";
 	
 		for (var i=0; i<3; i++){
@@ -42,7 +53,7 @@ function MostrarCarton(){
 }
 
 //Genera un carton de 3x9 con números sin repetir del 1 al 90
-function getCarton(){
+function getCartonPrincipal(){
 	var carton = new Array(3);
 
 	carton[0] = new Array(9);

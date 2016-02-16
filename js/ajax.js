@@ -9,6 +9,12 @@ function SacaBola() {
     var bolasJSON = JSON.stringify(bolassacadas); //Convertimos el array bolassacadas en json 
   	$.get("numeros.php",{bolas: bolasJSON}, MuestraBola); //Pasamos a php ese array
   }
+
+  JuegoJugadoresSecundarios();
+
+  /*if(numBingosAcertados > 0){
+    alert("BINGO TERMINADO")
+  }*/
 } 
 
 function MuestraBola(bola){
