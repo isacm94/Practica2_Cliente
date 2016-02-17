@@ -12,9 +12,10 @@ function SacaBola() {
 
   JuegoJugadoresSecundarios();
 
-  /*if(numBingosAcertados > 0){
-    alert("BINGO TERMINADO")
-  }*/
+  if(numBingosAcertados > 0){
+    alert("BINGO TERMINADO " + numBingosAcertados+ " HAN CANTADO BINGO");
+    ParaBingo();
+  }
 } 
 
 function MuestraBola(bola){

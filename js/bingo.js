@@ -53,26 +53,28 @@ function CalcularPremio(){
 
 }
 function MostrarVentanaBingoCorrecto() {
-	ventanaBingoCorrecto = window.open("bingoCorrecto.html", "", "width=400px, height=250px");
-	ventanaBingoCorrecto.moveTo(screen.width/2-150,screen.height/2-150); 
-
-	/**ventanaBingoCorrecto.document.write("<center><h1>¡BINGO CORRECTO!</h1></center><br>");
-	ventanaBingoCorrecto.document.write("<center><input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
-
-	ventanaBingoCorrecto.document.write("<script>function CerrarVentana(){window.close();}</script>");*/
+	ParaBingo();
+	swal({   title: "¡Bingo Correcto!",   
+		text: "Su premio es ",   
+		type: "success",   
+		showCancelButton: false,   
+		confirmButtonColor: "#C1C1C1",   
+		confirmButtonText: "Aceptar",   
+		closeOnConfirm: true }, 
+		function(){   SigueBingo(); });
 }
 
 function MostrarVentanaBingoIncorrecto() {
-	intervalo = ParaBingo();
 
-	ventanaBingoIncorrecto = window.open("bingoIncorrecto.html", "", "width=430px, height=250px");
-	ventanaBingoIncorrecto.moveTo(screen.width/2-150,screen.height/2-150); 
-
-	/*ventanaBingoIncorrecto.document.write("<center><h1>¡BINGO INCORRECTO!</h1>");
-	ventanaBingoIncorrecto.document.write("<h2>¡Siga jugando!</h3>");
-	ventanaBingoIncorrecto.document.write("<input type='submit' id='cerrarBingoCorrecto' value='Aceptar' onclick='CerrarVentana()' ></center>");
-
-	ventanaBingoIncorrecto.document.write("<script>function CerrarVentana(){window.close(); }</script>");*/
+	ParaBingo();
+	swal({   title: "¡Bingo Incorrecto!",   
+		text: "Siga jugando",   
+		type: "warning",   
+		showCancelButton: false,   
+		confirmButtonColor: "#C1C1C1",   
+		confirmButtonText: "Aceptar",   
+		closeOnConfirm: true }, 
+		function(){   SigueBingo(); });
 }
 
 
@@ -118,14 +120,11 @@ function JuegoJugadoresSecundarios(){
 	for(var i = 0; i < cartones.length; i++){
 		//alert("jug " + cartones[i]);
 		if(esBingo(cartones[i])){
-			alert("¡El jugador "+ (i+2) +" ha ganado el bingo!");
+			//alert("¡El jugador "+ (i+2) +" ha ganado el bingo!");
 			numBingosAcertados++;
 		}
 	}
 }
-
-
-
 
 /*INTERVALO BINGO------------------------------------------------------------------------------------------------*/
 function ParaBingo(){
