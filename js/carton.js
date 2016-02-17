@@ -7,7 +7,11 @@ function Jugar(){
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
 		alert("¡Error! Introduzca el número de jugadores")
 	else if($("#numJugadores").val() < 5 || $("#numJugadores").val() > 20)
-		alert("¡Error! El número de jugadores estar entre 5 y 20")
+		alert("¡Error! El número de jugadores debe estar entre 5 y 20")
+	else if(isNaN($("#numJugadores").val())){		
+		alert("¡Error! El valor del número de jugadores debe ser númerico")
+	}
+
 	else{
 		$('#contenido').attr('style', '');//Mostramos el contenido
 		$('#pre-contenido').hide();//Ocultamos la imagen de inicio

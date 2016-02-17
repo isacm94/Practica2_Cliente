@@ -17,8 +17,8 @@ function CantaBingo(){
 	//alert("Bolas: " + bolas_15);
 
 	if(esBingo(bolas_15)){
-		MostrarVentanaBingoCorrecto();
 		numBingosAcertados++;
+		MostrarVentanaBingoCorrecto();		
 		//ReiniciarBingo();
 	}
 	else
@@ -49,7 +49,14 @@ function esBingo(carton){
 
 function CalcularPremio(){
 
-	return 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
+	valorCarton = valorCarton.substring(0, 1);
+	valorCarton = parseInt(valorCarton);
+	numJugadores = parseInt(numJugadores);
+
+	var rdo = 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
+
+	return rdo;
+	//return 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
 
 }
 function MostrarVentanaBingoCorrecto() {
@@ -121,10 +128,26 @@ function JuegoJugadoresSecundarios(){
 		//alert("jug " + cartones[i]);
 		if(esBingo(cartones[i])){
 			//alert("¡El jugador "+ (i+2) +" ha ganado el bingo!");
+			MostrarVentanaJugador(i+2);
 			numBingosAcertados++;
+			//ParaBingo();
 		}
 	}
 }
+
+function MostrarVentanaJugador(jugador) {
+	var premio = CalcularPremio();
+	ParaBingo();
+	swal({   title: "¡Bingo Correcto!",   
+		text: "El jugador "+jugador+" ha ganado su premio es "+ premio,   
+		type: "success",   
+		showCancelButton: false,   
+		confirmButtonColor: "#A5DC86",   
+		confirmButtonText: "Jugar de nuevo",   
+		closeOnConfirm: true }, 
+		function(){  ReiniciarBingo() });
+}
+
 
 /*INTERVALO BINGO------------------------------------------------------------------------------------------------*/
 function ParaBingo(){
