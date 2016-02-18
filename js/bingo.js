@@ -52,12 +52,8 @@ function CalcularPremio(){
 	valorCarton = valorCarton.substring(0, 1);
 	valorCarton = parseInt(valorCarton);
 	numJugadores = parseInt(numJugadores);
-
-	var rdo = 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
-
-	return rdo;
-	//return 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
-
+	
+	return 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
 }
 function MostrarVentanaBingoCorrecto() {
 	ParaBingo();
@@ -128,8 +124,8 @@ function JuegoJugadoresSecundarios(){
 		//alert("jug " + cartones[i]);
 		if(esBingo(cartones[i])){
 			//alert("¡El jugador "+ (i+2) +" ha ganado el bingo!");
-			MostrarVentanaJugador(i+2);
 			numBingosAcertados++;
+			MostrarVentanaJugador(i+2);			
 			//ParaBingo();
 		}
 	}
