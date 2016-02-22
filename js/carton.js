@@ -20,8 +20,9 @@ function Jugar(){
 		numJugadores = $("#numJugadores").val();
 		valorCarton = $("#valorcarton").val();
 		
-
-		//alert("Número de jugadores: "+ numJugadores + " - Valor del cartón: " + valorCarton);
+		valorCarton = valorCarton.substring(0, 1);
+		valorCarton = parseInt(valorCarton);
+		numJugadores = parseInt(numJugadores);
 		
 		MostrarCarton(); //Muestra el cartón con el que jugaremos
 

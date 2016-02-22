@@ -13,7 +13,7 @@ function SacaBola() {
   JuegoJugadoresSecundarios();
 
   if(numBingosAcertados > 0){
-    alert("BINGO TERMINADO " + numBingosAcertados+ " HAN CANTADO BINGO");
+    MostrarVentanaFinJuego();
     ParaBingo();
   }
 } 
@@ -21,4 +21,15 @@ function SacaBola() {
 function MuestraBola(bola){
   bolassacadas.push(bola);//Añadimos la nueva bola sacada al array
   document.getElementById('bola').innerHTML = bola;//La mostramos
+}
+
+function MostrarVentanaFinJuego() {
+  swal({   title: "¡Juego Terminado!",   
+    text: "Han ganado el bingo "+numBingosAcertados+" jugadores",   
+    type: "success",   
+    showCancelButton: false,   
+    confirmButtonColor: "#A5DC86",   
+    confirmButtonText: "Jugar de nuevo",   
+    closeOnConfirm: true }, 
+    function(){  ReiniciarBingo() });
 }

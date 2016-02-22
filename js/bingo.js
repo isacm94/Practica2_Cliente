@@ -6,7 +6,6 @@ function CantaBingo(){
 
 	for (var i=0; i<3; i++){
 			for (var j = 0; j < 9; j++){
-
 						
 				if(cartonPrincipal[i][j] != 'L'){
 					bolas_15.push(cartonPrincipal[i][j].toString());
@@ -49,10 +48,6 @@ function esBingo(carton){
 
 function CalcularPremio(){
 
-	valorCarton = valorCarton.substring(0, 1);
-	valorCarton = parseInt(valorCarton);
-	numJugadores = parseInt(numJugadores);
-	
 	return 0.80 *((numJugadores * valorCarton)/numBingosAcertados);
 }
 function MostrarVentanaBingoCorrecto() {
@@ -121,14 +116,12 @@ function getCarton(){
 function JuegoJugadoresSecundarios(){
 
 	for(var i = 0; i < cartones.length; i++){
-		//alert("jug " + cartones[i]);
+		
 		if(esBingo(cartones[i])){
-			//alert("¡El jugador "+ (i+2) +" ha ganado el bingo!");
 			numBingosAcertados++;
-			MostrarVentanaJugador(i+2);			
-			//ParaBingo();
 		}
 	}
+
 }
 
 function MostrarVentanaJugador(jugador) {
@@ -139,9 +132,9 @@ function MostrarVentanaJugador(jugador) {
 		type: "success",   
 		showCancelButton: false,   
 		confirmButtonColor: "#A5DC86",   
-		confirmButtonText: "Jugar de nuevo",   
+		confirmButtonText: "Aceptar",   
 		closeOnConfirm: true }, 
-		function(){  ReiniciarBingo() });
+		function(){  SigueBingo(); });
 }
 
 
