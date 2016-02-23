@@ -119,16 +119,16 @@ function JuegoJugadoresSecundarios(){
 		
 		if(esBingo(cartones[i])){
 			numBingosAcertados++;
+			MostrarVentanaJugador(i+2);
 		}
 	}
 
 }
 
 function MostrarVentanaJugador(jugador) {
-	var premio = CalcularPremio();
 	ParaBingo();
 	swal({   title: "¡Bingo Correcto!",   
-		text: "El jugador "+jugador+" ha ganado, su premio es "+ premio,   
+		text: "El jugador "+jugador+" ha ganado",   
 		type: "success",   
 		showCancelButton: false,   
 		confirmButtonColor: "#A5DC86",   
