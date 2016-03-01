@@ -20,7 +20,7 @@
 	border: 3px solid #49ACE5;
 	min-width: 72px;
 	max-width: 72px;
-
+	cursor:pointer; cursor:hand;
 }
 
 
@@ -30,6 +30,7 @@
 	background-image: url("../images/huecolibre.gif");
 	background-repeat: no-repeat;
 	background-position: center;
+	cursor: default;
 }
 
 .tachado{	
@@ -38,6 +39,8 @@
 	background-image: url("../images/cruz.png");
 	background-repeat: no-repeat;
 	background-position: center;
+	cursor:pointer; 
+	cursor:hand;
 }
 
 @font-face {

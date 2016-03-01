@@ -2,7 +2,9 @@
 var cartonPrincipal;//Cartón del jugador principal
 var cartones;//Cartones de los jugadores secundarios
 
-
+/**
+* Función principal de la aplicación, empieza el juego.
+**/
 function Jugar(){
 	if($("#numJugadores").val() == null || $("#numJugadores").val() == "")
 		alert("¡Error! Introduzca el número de jugadores")
@@ -17,9 +19,9 @@ function Jugar(){
 		$('#pre-contenido').hide();//Ocultamos la imagen de inicio
 		$('#jugar').attr("disabled", true);//Deshabilita botón
 
+		//Guarda el nº de jugadores y el valor del cartón introducido
 		numJugadores = $("#numJugadores").val();
-		valorCarton = $("#valorcarton").val();
-		
+		valorCarton = $("#valorcarton").val();		
 		valorCarton = valorCarton.substring(0, 1);
 		valorCarton = parseInt(valorCarton);
 		numJugadores = parseInt(numJugadores);
@@ -33,9 +35,9 @@ function Jugar(){
 	}
 }
 
-
-
-//Muestra el cartón del jugador principal
+/**
+* Muestra el cartón del jugador principal
+**/
 function MostrarCarton(){
 	cartonPrincipal = getCartonPrincipal();
 	var id= "";
@@ -57,7 +59,9 @@ function MostrarCarton(){
 		}
 }
 
-//Genera un carton de 3x9 con números sin repetir del 1 al 90
+/**
+* Genera un carton de 3x9 con números sin repetir del 1 al 90
+**/
 function getCartonPrincipal(){
 	var carton = new Array(3);
 
@@ -75,8 +79,6 @@ function getCartonPrincipal(){
 	var columna6 = getColumna(60, 69);
 	var columna7 = getColumna(70, 79);
 	var columna8 = getColumna(80, 90);
-
-
 
 	//Guardamos las columnas en el array
 	for (i = 0; i < 3; i++)
@@ -133,7 +135,11 @@ function getCartonPrincipal(){
 	return getCartonConHuecosLibres(carton);
 }
 
-//Genera una columna de 3 celdas con números sin repetir
+/**
+* Genera una columna de 3 celdas con números sin repetir
+* min ---> número mínimo que puede generar
+* max ---> número máximo que puede generar
+*/
 function getColumna(min, max){
 
 	var columna = Array(3);
@@ -154,7 +160,10 @@ function getColumna(min, max){
 }
 
 
-//Establece 4 espacios libres en cada fila del cartón
+/**
+*Establece 4 espacios libres en cada fila del cartón
+* carton --> cartón del jugador principal
+*/
 function getCartonConHuecosLibres(carton){
 
 	var HuecosLibres;
@@ -174,7 +183,9 @@ function getCartonConHuecosLibres(carton){
 	return carton;
 }
 
-//Genera un array de 4 números sin repetir 
+/**
+* Genera un array de 4 números sin repetir, para crear cada fila.
+*/
 function get4NumAleat(){
 
 	var i = 0, rnd = -1;
@@ -195,31 +206,44 @@ function get4NumAleat(){
 
 }
 
+/**
+* Devuelve un número aleatorio
+* min ---> número mínimo que puede generar
+* max ---> número máximo que puede generar
+*/
 function getRandom(min, max) {
     return Math.round(Math.random()*(max-min)+parseInt(min));
 }
 
+
+/**
+* Función que se ejecuta cuando se pulsa sobre un número. Muestra una X sobre él
+* idx --> ID de la celda(div)
+*/
 function TacharCelda(idx){
 
-
+	//Añade el # al id
 	var id = "";
-
 	if(idx.toString().length == 2)
 		id = "#" + idx.toString();
-	else if(idx.toString().length == 1)
+	else if(idx.toString().length == 1)//Cuando es 1, 2, 3...
 		id = "#0" + idx.toString();
 
-	if($(id).hasClass("tachado") && ! $(id).hasClass("imgHuecoLibre")){
+	//No se puede tachar si tiene es un hueco libre
+	if($(id).hasClass("tachado") && ! $(id).hasClass("imgHuecoLibre")){//Si está tachado, le quita el tachado.
 		$(id).removeClass("tachado");
 	
 	}
-	else if(! $(id).hasClass("imgHuecoLibre")){
+	else if(! $(id).hasClass("imgHuecoLibre")){//Sino está tachado, lo pone tachado. 
 		$(id).addClass('tachado');
 	}
 
 }
 
-
+/**
+* Función que establece 4 huecos libres en la última fila del cartón, teniendo en cuenta que en una misma columna no puede existir 3 huecos libres.
+* carton --> Cartón generado para el jugador principal
+*/
 function ultimafila(carton){
 	var iguales=[];
 

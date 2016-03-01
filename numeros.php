@@ -3,8 +3,8 @@ $bolassacadas = json_decode($_GET['bolas']); //Convertimos el array bolas que es
 	
 do{
 	$bola = rand(1, 90);
-}while(in_array($bola, $bolassacadas));//Saca bola mientras esté guardado ya 
+}while(in_array($bola, $bolassacadas));//Saca bola mientras esté repetida
 
-echo $bola;
+echo $bola; //Devuelve la bola generada
 	
 	
