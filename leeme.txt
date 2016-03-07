@@ -1,0 +1,1 @@
+NOTA: la aplicación ha sido probada en Chrome, cualquier error en otro navegador no ha sido contemplado.
